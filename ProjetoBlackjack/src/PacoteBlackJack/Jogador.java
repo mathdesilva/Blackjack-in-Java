@@ -12,6 +12,14 @@ package PacoteBlackJack;
 public class Jogador {
     String nome;
     
+    Jogador(){
+        nome = "Zé Ninguém";
+    }
+    
+    Jogador(String nome){
+        this.nome = nome;
+    }
+    
     String getNome(){
         return nome;
     }

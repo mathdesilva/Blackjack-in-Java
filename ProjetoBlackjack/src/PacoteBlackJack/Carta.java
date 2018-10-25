@@ -14,6 +14,18 @@ public class Carta {
     String naipe;
     int valor;
     
+    Carta(){
+        numero = '0';
+        naipe = "fake";
+        valor = 0;
+    }
+    
+    Carta(char numero, String naipe, int valor){
+        this.numero = numero;
+        this.naipe = naipe;
+        this.valor = valor;
+    }
+    
     char getNumero(){
         return numero;
     }
