@@ -10,19 +10,18 @@ package PacoteBlackJack;
  * @author matheus
  */
 public class Teste {
-    public static void main(String[] args){
-        Carta carta1 = new Carta();
-        Jogador player1 = new Jogador();
-        System.out.println("======= CONSTRUTOR PADRÃO =======");
-        System.out.println("Jogador: "+player1.getNome());
-        System.out.println("A carta é "+carta1.getNumero()+" de "
-                +carta1.getNaipe());
-        
-        Carta carta2 = new Carta('8', "Paus", 8);
+    public static void main(String[] args){  
+        Jogador player1 = new Jogador("Andrade");
         Jogador player2 = new Jogador("Matheus");
-        System.out.println("====== CONSTRUTOR CRIADO =======");
-        System.out.println("A carta é "+carta2.getNumero()+" de "
-                +carta2.getNaipe()+" e o jogador é "+player2.getNome());
+       
+        Mesa mesa1 = new Mesa();
         
+        System.out.println("P1: "+mesa1.getNomeJogador1().getNome());
+        System.out.println("P2: "+mesa1.getNomeJogador2().getNome());
+        
+        Mesa mesa2 = new Mesa(player1.getNome(), player2.getNome());
+        
+        System.out.println("P1: "+mesa2.getNomeJogador1().getNome());
+        System.out.println("P2: "+mesa2.getNomeJogador2().getNome());
     }
 }
