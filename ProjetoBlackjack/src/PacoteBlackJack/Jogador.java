@@ -10,20 +10,20 @@ package PacoteBlackJack;
  * @author matheus
  */
 public class Jogador {
-    String nome;
+    private String nome;
     
-    Jogador(){
+    public Jogador(){
         nome = "Zé Ninguém";
     }
     
-    Jogador(String nome){
+    public Jogador(String nome){
         this.nome = nome;
     }
     
-    String getNome(){
+    public String getNome(){
         return nome;
     }
-    void setNome(String nome){
+    public void setNome(String nome){
         this.nome = nome;
     }
 }
