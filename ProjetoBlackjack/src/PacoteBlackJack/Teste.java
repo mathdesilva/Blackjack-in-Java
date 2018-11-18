@@ -23,5 +23,9 @@ public class Teste {
         
         System.out.println("P1: "+mesa2.getNomeJogador1().getNome());
         System.out.println("P2: "+mesa2.getNomeJogador2().getNome());
+        
+        Baralho baralho1 = new Baralho();
+        
+        baralho1.listarCartas();
     }
 }

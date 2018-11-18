@@ -10,26 +10,26 @@ package PacoteBlackJack;
  * @author matheus
  */
 public class Carta {
-    private char numero;
+    private String numero;
     private String naipe;
     private int valor;
     
     public Carta(){
-        numero = '0';
+        numero = "0";
         naipe = "fake";
         valor = 0;
     }
     
-    public Carta(char numero, String naipe, int valor){
+    public Carta(String numero, String naipe, int valor){
         this.numero = numero;
         this.naipe = naipe;
         this.valor = valor;
     }
     
-    public char getNumero(){
+    public String getNumero(){
         return numero;
     }
-    public void setNumero(char numero){
+    public void setNumero(String numero){
         this.numero = numero;
     }
     
