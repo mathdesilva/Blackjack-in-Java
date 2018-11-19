@@ -9,21 +9,28 @@ package PacoteBlackJack;
  *
  * @author matheus
  */
-public class Jogador {
-    private String nome;
-    
-    public Jogador(){
-        nome = "Zé Ninguém";
-    }
-    
-    public Jogador(String nome){
-        this.nome = nome;
-    }
-    
-    public String getNome(){
-        return nome;
-    }
-    public void setNome(String nome){
-        this.nome = nome;
-    }
+public class Jogador extends Pessoa{
+   private String email;
+   
+   
+   public Jogador(String nome, String dataDeNascimento, int cpf, String nacionalidade, String email){
+       super(nome, dataDeNascimento, cpf, nacionalidade);
+       this.email = email;
+   }
+   
+   
+   protected String getEmail(){
+       return email;
+   }
+   protected void setEmail(String email){
+       this.email = email;
+   }
+   
+   protected void imprimeDadosJogador(){
+       System.out.println("Dados do "+getNome()+":");
+       System.out.println("data de nascimento: "+getDataDeNascimento());
+       System.out.println("CPF: "+getCPF());
+       System.out.println("Nacionalidade: "+getNacionalidade());
+       System.out.println("Email: "+getEmail());
+   }
 }
