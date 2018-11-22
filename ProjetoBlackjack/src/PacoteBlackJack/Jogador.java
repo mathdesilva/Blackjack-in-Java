@@ -33,4 +33,9 @@ public class Jogador extends Pessoa{
        System.out.println("Nacionalidade: "+getNacionalidade());
        System.out.println("Email: "+getEmail());
    }
+   
+   public void mensagemVitoria(){
+       System.out.println("Venci! uhuuuu");
+   }
+   
 }

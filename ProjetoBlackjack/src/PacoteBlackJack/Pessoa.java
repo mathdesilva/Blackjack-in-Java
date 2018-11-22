@@ -32,4 +32,8 @@ public class Pessoa extends Humano {
     protected void setNacionalidade(String nacionalidade){
         this.nacionalidade = nacionalidade;
     }
+    
+    public void mensagemVitoria(){
+        System.out.println("Venci!!");
+    }
 }
