@@ -50,4 +50,8 @@ public class Mesa {
     public void embaralhar(){
         baralho.embaralhar();
     }
+    
+    protected Carta pegarCarta() throws ExcecaoBaralhoVazio{
+        return baralho.pegarCarta();
+    }
 }

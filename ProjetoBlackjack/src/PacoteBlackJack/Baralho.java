@@ -60,4 +60,20 @@ public class Baralho {
             cartas.set(y, aux_cartas);
         }
     }
+    
+    protected Carta pegarCarta() throws ExcecaoBaralhoVazio{
+        Carta carta = new Carta();
+        try{
+            if(cartas.size() == 0){
+                throw new ExcecaoBaralhoVazio("Não há mais cartas no baralho");
+            }
+            carta = cartas.get(0);
+            cartas.remove(0);
+        } catch (ExcecaoBaralhoVazio e){
+            System.out.println("Aconteceu um erro");
+            System.out.println(e.getMessage());
+        }
+        return carta;
+    }
+    
 }
