@@ -5,17 +5,21 @@
  */
 package PacoteBlackJack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author matheus
  */
 public class Jogador extends Pessoa{
    private String email;
-   
+   private List<Carta> cartasSacadas;
    
    public Jogador(String nome, String dataDeNascimento, int cpf, String nacionalidade, String email){
        super(nome, dataDeNascimento, cpf, nacionalidade);
        this.email = email;
+       cartasSacadas = new ArrayList();
    }
    
    
@@ -34,8 +38,21 @@ public class Jogador extends Pessoa{
        System.out.println("Email: "+getEmail());
    }
    
+   @Override
    public void mensagemVitoria(){
        System.out.println("Venci! uhuuuu");
+   }
+   
+   protected int getPontos(){
+       int total = 0;
+       for(Carta c : cartasSacadas){
+           total += c.getValor();
+       }
+       return total;
+   }
+   
+   public void adicionarCartaSacada(Carta c){
+       this.cartasSacadas.add(c);
    }
    
 }

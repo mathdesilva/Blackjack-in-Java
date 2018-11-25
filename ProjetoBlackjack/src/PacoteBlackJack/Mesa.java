@@ -54,4 +54,9 @@ public class Mesa {
     protected Carta pegarCarta() throws ExcecaoBaralhoVazio{
         return baralho.pegarCarta();
     }
+    
+    protected void mostrarPlacar(){
+        System.out.println(jogador1.getNome()+": "+jogador1.getPontos());
+        System.out.println(jogador2.getNome()+": "+jogador2.getPontos());
+    }
 }
