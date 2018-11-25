@@ -7,6 +7,7 @@ package PacoteBlackJack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -42,6 +43,21 @@ public class Baralho {
             String naipe = i.getNaipe();
             int valor = i.getValor();
             System.out.println(num+" de "+naipe+" vale "+valor);
+        }
+    }
+    
+    protected void embaralhar(){
+        Random random = new Random();
+        int x, y;
+        for(int i=0; i<5000; i++){
+            x = random.nextInt(52);
+            y = x;
+            while(x == y)
+                y = random.nextInt(52);
+            Carta aux_cartas = new Carta();
+            aux_cartas = cartas.get(x);
+            cartas.set(x, cartas.get(y));
+            cartas.set(y, aux_cartas);
         }
     }
 }

@@ -11,8 +11,10 @@ package PacoteBlackJack;
  */
 public class Teste {
     public static void main(String[] args){  
-        Baralho baralho = new Baralho();
-        
-        baralho.listarCartas();
+        Mesa mesa = new Mesa();
+        mesa.listarCartas();
+        System.out.println("------------------------------------");
+        mesa.embaralhar();
+        mesa.listarCartas();
     }
 }
