@@ -11,10 +11,8 @@ package PacoteBlackJack;
  */
 public class Teste {
     public static void main(String[] args){  
-        Jogador jogador = new Jogador("maria", "10/10/20", 700700, "brasileira", "maria@quentemail.com");
-        Pessoa pessoa = new Pessoa("jorge", "21/01/10", 800800800, "brasileiro");
+        Baralho baralho = new Baralho();
         
-        jogador.mensagemVitoria();
-        pessoa.mensagemVitoria();
+        baralho.listarCartas();
     }
 }
