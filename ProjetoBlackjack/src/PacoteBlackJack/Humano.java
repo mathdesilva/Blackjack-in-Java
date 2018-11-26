@@ -34,6 +34,4 @@ public class Humano {
         this.dataDeNascimento = dataDeNascimento;
     }
      
-    
-    
 }

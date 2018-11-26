@@ -54,5 +54,4 @@ public class Jogador extends Pessoa{
    public void adicionarCartaSacada(Carta c){
        this.cartasSacadas.add(c);
    }
-   
 }

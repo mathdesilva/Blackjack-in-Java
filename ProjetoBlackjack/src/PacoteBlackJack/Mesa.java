@@ -5,6 +5,8 @@
  */
 package PacoteBlackJack;
 
+import java.util.Scanner;
+
 /**
  *
  * @author matheus
@@ -58,5 +60,107 @@ public class Mesa {
     protected void mostrarPlacar(){
         System.out.println(jogador1.getNome()+": "+jogador1.getPontos());
         System.out.println(jogador2.getNome()+": "+jogador2.getPontos());
+    }
+    
+    public void jogar() throws ExcecaoBaralhoVazio{
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 50; ++i) System.out.println(); 
+        this.embaralhar();
+        int aux = 0, escolhap1 = 0, escolhap2 = 0;
+        while(aux == 0){
+            escolhap1 = 0;
+            while(escolhap1 != 2 && escolhap1 != 1){
+                System.out.println(jogador1.getNome()+", Deseja sacar uma carta?");
+                System.out.println("  1 - Sim");
+                System.out.println("  2 - Não");
+                System.out.print("Digite uma opção: ");
+                escolhap1 = sc.nextInt();
+            }
+            for (int i = 0; i < 50; ++i) System.out.println(); 
+            if(escolhap1 == 1){
+                Carta aux_carta = new Carta();
+                try{
+                    aux_carta = this.pegarCarta();
+                    jogador1.adicionarCartaSacada(aux_carta);
+                } catch (ExcecaoBaralhoVazio e){
+                    e.getMessage();
+                    return;
+                }
+                System.out.println(jogador1.getNome() + " pegou "+ aux_carta.mostrarCarta());
+            }
+            this.mostrarPlacar();
+            aux = this.verificarPontos(escolhap1, escolhap2);
+            if(aux == 2)
+                break;
+             
+            escolhap2=0;
+            while(escolhap2 != 2 && escolhap2 != 1){
+                System.out.println(jogador2.getNome()+", Deseja sacar uma carta?");
+                System.out.println("  1 - Sim");
+                System.out.println("  2 - Não");
+                System.out.print("Digite uma opção: ");
+                escolhap2 = sc.nextInt();
+            }
+            for (int i = 0; i < 50; ++i) System.out.println(); 
+            if(escolhap2 == 1){
+                Carta aux_carta = new Carta();
+                try{
+                    aux_carta = this.pegarCarta();
+                    jogador2.adicionarCartaSacada(aux_carta);
+                } catch (ExcecaoBaralhoVazio e){
+                    e.getMessage();
+                    break;
+                }    
+                System.out.println(jogador2.getNome() + " pegou "+ aux_carta.mostrarCarta());
+            }
+            this.mostrarPlacar();
+            aux = this.verificarPontos(escolhap1, escolhap2);
+            if(aux == 2)
+                break;
+        }
+    }
+    
+    // retorna 2 caso alguém ganhe
+    // retorna 0 para continuar o jogo
+    private int verificarPontos(int escolhap1, int escolhap2){
+        int pontop1 = jogador1.getPontos();
+        int pontop2 = jogador2.getPontos();
+        if(escolhap1 == 2 && escolhap2 == 2){
+            if(pontop1 > pontop2){
+                System.out.println(jogador1.getNome() + " ganhou!!!!!");
+                jogador1.mensagemVitoria();
+                return 2;
+            }
+            if(pontop1 < pontop2){
+                System.out.println(jogador2.getNome() + " ganhou!!!!!");
+                jogador2.mensagemVitoria();
+                return 2;
+            }
+            if(pontop1 == pontop2){
+                System.out.println("EMPATE!!");
+            }
+        }else{
+            if(pontop1 == 21){
+                System.out.println(jogador1.getNome() + " ganhou!!!!!");
+                jogador1.mensagemVitoria();
+                return 2;
+            }
+            else if(pontop1 > 21){
+                System.out.println(jogador2.getNome() + " ganhou!!!!!");
+                jogador2.mensagemVitoria();
+                return 2;
+            }
+            if(pontop2 == 21){
+                System.out.println(jogador2.getNome() + " ganhou!!!!!");
+                jogador1.mensagemVitoria();
+                return 2;
+            }
+            else if(pontop2 > 21){
+                System.out.println(jogador1.getNome() + " ganhou!!!!!");
+                jogador2.mensagemVitoria();
+                return 2;
+            }
+        }
+        return 0;
     }
 }

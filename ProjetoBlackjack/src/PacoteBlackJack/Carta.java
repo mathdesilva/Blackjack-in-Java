@@ -46,4 +46,12 @@ public class Carta {
     public void setValor(int valor){
         this.valor = valor;
     }
+    
+    public String mostrarCarta(){
+        String num = this.getNumero();
+        String naipe = this.getNaipe();
+        int valor = this.getValor();
+        return num+" de "+naipe+" vale "+valor;
+    }
+    
 }
