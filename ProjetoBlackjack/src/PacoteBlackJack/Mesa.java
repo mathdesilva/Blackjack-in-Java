@@ -138,6 +138,7 @@ public class Mesa {
             }
             if(pontop1 == pontop2){
                 System.out.println("EMPATE!!");
+                return 2;
             }
         }else{
             if(pontop1 == 21){
